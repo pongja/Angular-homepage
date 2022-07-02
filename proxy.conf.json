@@ -1,0 +1,8 @@
+{
+  "/": {
+    "target": "",
+    "secure": true,
+    "logLevel": "debug",
+    "changeOrigin" : true
+  }
+}

@@ -1,0 +1,42 @@
+<nz-content class="nzct">
+  <div class="id-pwd-content">
+    <div class="total-content">
+      <div class="imglogo">
+        <img [src]="logoimageUrl">
+      </div>
+    <div class="page-form">
+      <div class="id-reg">
+        <a class="id-a" style="text-decoration:none;">아이디 찾기</a>
+      </div>
+      <div class="pw-reg">
+        <a class="pw-a" style="text-decoration:none;">비밀번호 찾기</a>
+      </div>
+    </div>
+  <form nz-form [formGroup]="validateForm" class="id-pw-form" (ngSubmit)="submitForm()">
+    <nz-form-item>
+      <nz-form-control class="subform">
+        <nz-input-group class="top-id">
+          <input type="text" nz-input formControlName="userName" placeholder="이름"  style="width: 320px; height: 40px;"/>
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control class="subform">
+        <nz-input-group style="display: flex;">
+          <input type="tel" nz-input formControlName="phoneNumber" placeholder="전화번호"  style="width:221px; height: 40px;"/>
+          <button nz-button class="phoneAuth">인증 요청</button>
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+    <nz-form-control class="subform">
+    <nz-input-group>
+      <input type="number" nz-input maxLength="6" minLength="6" formControlName="numberSix"  placeholder="인증번호 6자리 숫자입력"  style="width: 320px; height: 40px;"/>
+    </nz-input-group>
+  </nz-form-control>
+  </nz-form-item>
+    <button nz-button class="form-button" [nzType]="'primary'">아이디 찾기</button>
+  </form>
+</div>
+</div>
+</nz-content>

@@ -1,0 +1,48 @@
+<nz-content class="nzct">
+  <nav class="navbar">
+    <div class="logo">
+      <img src="assets/images/MyBlog2.png" alt="logo" style="cursor:pointer;" routerLink="/dashboard"
+        style="width: 300px; height: 38px;">
+    </div>
+    <div class="menu">
+      <ul class="menu_ul">
+        <li>기술소개
+          <div class="dropdown-content" id="width-full">
+            <div class="width-div">
+              <div class="a-div1"><a routerLink="/dashboard" id="a-under-tag"><span class="bottom-solid">기술소개</span></a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>프로젝트
+          <div class="dropdown-content" id="width-full">
+            <div class="width-div">
+              <div class="a-div2"><a href="https://github.com/pongja" id="a-under-tag" style="width: 200px;"><span
+                    class="bottom-solid" id="right-center">깃허브</span></a></div>
+            </div>
+          </div>
+
+        </li>
+        <li>커뮤니티
+          <div class="dropdown-content" id="width-full">
+            <div class="width-div">
+              <div class="a-div5"><a routerLink="/dashboard" id="a-under-tag" style="width: 170px;"><span
+                    class="bottom-solid">X</span></a></div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!---header.ts 에 사용한 login$과 username$에대한 Observable을 사용하여 비동기 통신사용방법-->
+    <ul class="info_ul" *ngIf="(login$ | async) === false">
+      <li><a routerLink='/login'>로그인</a></li>
+      <li><a routerLink='/singup'>회원가입</a></li>
+    </ul>
+    <ul class="info_ul" *ngIf="(login$ | async) === true">
+      <ng-container>
+        <li><a>{{ (username$ | async) }}</a></li>
+      </ng-container>
+      <li><a (click)="logout($event)">로그아웃</a></li>
+    </ul>
+  </nav>
+</nz-content>

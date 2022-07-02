@@ -1,0 +1,71 @@
+<nz-content class="nzct">
+  <div class="regdit-content">
+    <div class="logoimag">
+      <img [src]="logoimageUrl">
+    </div>
+    <form nz-form class="redgit-form" [formGroup]="validateForm" (ngSubmit)="submitForm()">
+      <nz-form-item class="margin-form">
+        <nz-form-control nzHasFeedback [nzErrorTip]="emailErrorTpl">
+          <input nz-input formControlName="email" placeholder="이메일" type="email" />
+          <ng-template #emailErrorTpl let-control>
+            <ng-container *ngIf="control.hasError('email')">The input is not valid E-mail!</ng-container>
+            <ng-container *ngIf="control.hasError('required')">Please input your E-mail!</ng-container>
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item class="margin-form">
+        <nz-form-control nzHasFeedback nzErrorTip="비밀번호를 입력해주세요">
+          <nz-input-group [nzSuffix]="suffixTemplate">
+            <input [type]="passwordVisible ? 'text' : 'password'" nz-input formControlName="password" placeholder="비밀번호"
+              (ngModelChange)="validateConfirmPassword()"/>
+          </nz-input-group>
+          <ng-template #suffixTemplate>
+            <i class="i-eye" nz-icon [nzType]="passwordVisible ? 'eye-invisible' : 'eye'" (click)="passwordVisible = !passwordVisible"></i>
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item class="margin-form">
+        <nz-form-control nzHasFeedback [nzErrorTip]="passwordErrorTpl">
+          <nz-input-group [nzSuffix]="suffixTemplate2">
+          <input nz-input [type]="confirmwordVisible ? 'text' : 'password'" formControlName="confirm" placeholder="비밀번호 확인"/>
+          </nz-input-group>
+          <ng-template #suffixTemplate2>
+            <i class="i-eye-two" nz-icon [nzType]="confirmwordVisible ? 'eye-invisible' : 'eye'" (click)="confirmwordVisible = !confirmwordVisible"></i>
+          </ng-template>
+          <ng-template #passwordErrorTpl let-control >
+            <ng-container *ngIf="control.hasError('required')">비밀번호를 확인해주세요</ng-container>
+            <ng-container *ngIf="control.hasError('confirm')">암호가 일치하지않습니다</ng-container>
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item class="margin-form">
+        <nz-form-control nzErrorTip="name">
+          <nz-input-group>
+            <input type="text" nz-input formControlName="name" placeholder="이름" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item class="margin-form">
+        <nz-form-control nzErrorTip="phoneNumber">
+          <nz-input-group>
+            <input type="tel" min="1" max="9" nz-input formControlName="phoneNumber" placeholder="휴대폰번호" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item class="margin-form">
+        <nz-form-control nzErrorTip="date">
+          <nz-input-group>
+            <input type="text" nz-input placeholder="생년월일" formControlName="date" onfocus="(this.type='date')"
+              onblur="if(this.value==''){this.type='text'}" style="width: 330px;">
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control>
+          <button nz-button nzType="primary" class="regdit-button" [disabled]="!validateForm.valid" routerLink="/login"
+            (click)="submitForm()">가입하기</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </div>
+</nz-content>
