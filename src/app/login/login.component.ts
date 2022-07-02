@@ -6,12 +6,7 @@ import { first } from 'rxjs/operators';
 import { AuthService } from '../auth-service';
 
 
-/**
- * 기   능: 로그인 성공실패에대한 기능
- * 참   조: antd 라이브러리 기반으로 만들어진 로그인 
- * HISTORY:
- *  - 20220201: 김기범 : Create
- */
+
 
 @Component({
   selector: 'app-login',

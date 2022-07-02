@@ -4,12 +4,7 @@ import { Router } from '@angular/router';
 import { Observable, Observer } from 'rxjs';
 import { AuthService } from '../auth-service';
 
-/**
- * 기    능: antd 의 라이브러리를 이용한 아이디가 없을시 회원가입을 하여 권한생성을 위한 기능
- * 주의사항: signup을 했다고 회원가입이 되었다고 하여도 서버에서 해당 id,pwd 권한이 부여되지면 로그인이되지않습니다
- * HISTORY: 
- * - 20220201: 김기범 : Create
- */
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
