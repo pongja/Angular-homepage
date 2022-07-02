@@ -2,6 +2,10 @@
 Angular 인증관련 restapi 로그인,회원가입 페이지 현재 backend 데이터가 없음ㅠ
 ![image](https://user-images.githubusercontent.com/58586037/176999772-c94febff-a28b-4895-a9b4-f04665e76e43.png)
 
+restapi user data있을경우 로그인시 헤더에 토큰유지-> 유저 이름, 로그아웃이 나타남
+![image](https://user-images.githubusercontent.com/58586037/176999880-5764385b-642e-4903-8b00-dba53caa22e2.png)
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
 
 ## Development server
