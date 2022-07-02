@@ -1,5 +1,5 @@
 # Homepage
-
+Angular 인증관련 restapi 로그인,회원가입 페이지 현재 backend 데이터가 없음ㅠ
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
 
 ## Development server
