@@ -3,7 +3,6 @@ import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { BehaviorSubject, catchError, Observable, throwError } from "rxjs";
 import { tap } from 'rxjs/operators';
-import { baseUrl } from "src/environments/environment";
 import { Useraccount } from "./Useraccount";
 
 @Injectable({
@@ -67,7 +66,7 @@ export class AuthService {
     const params = new FormData(); //params 안에 username , password를 저장하여 데이터전송시 username,password가아닌 params로 전달
     params.append('username', username);
     params.append('password', password);
-    return this.http.post<any>(`${baseUrl}/signin/`, params, { observe: 'body', withCredentials: true })//withCredentials:true
+    return this.http.post<any>(`/signin/`, params, { observe: 'body', withCredentials: true })//withCredentials:true
       .pipe(
         catchError(this.handleError),
         tap(res => {
@@ -86,7 +85,7 @@ export class AuthService {
     params.append('email', email);
     params.append('password', password);
     params.append('name', name);
-    return this.http.post<any>(`${baseUrl}/signup/`, params, { observe: 'body', withCredentials: true })
+    return this.http.post<any>(`/signup/`, params, { observe: 'body', withCredentials: true })
       .pipe(
         catchError(this.handleErrorsingup)
       )
@@ -96,7 +95,7 @@ export class AuthService {
     this.currentUser.next(new Useraccount("", "", "", "", "", ""))
     this.isLoggedInSubject.next(false);
     sessionStorage.clear();
-    return this.http.post<any>(`${baseUrl}/signout/`, {}); //데이터를 지우기때문에 withCredentials기능자체도 빼며 모든데이터관련 기능은 뺌
+    return this.http.post<any>(`/signout/`, {}); //데이터를 지우기때문에 withCredentials기능자체도 빼며 모든데이터관련 기능은 뺌
   }
 
   getUseraccount(): Observable<Useraccount> {
